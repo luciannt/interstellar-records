@@ -1,6 +1,4 @@
 class GenresController < ApplicationController
-  before_action :authorize
-
   def index
     render json: Genre.all, status: :ok
   end
@@ -10,15 +8,18 @@ class GenresController < ApplicationController
   end
 
   def create
+    authorize()
     render json: Genre.create!(genre_params), status: :created
   end
 
   def update
+    authorize()
     find_genre.update!(genre_params)
     render json: find_genre, status: :accepted
   end
 
   def destroy
+    authorize()
     find_genre.destroy
     head :no_content
   end

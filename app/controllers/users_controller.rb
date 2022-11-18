@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    render json: User.create!(user_params), status: :created
+    render json: User.create!(user_params, role: "User"), status: :created
   end
 
   def update

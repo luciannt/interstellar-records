@@ -1,8 +1,7 @@
 class RecordsController < ApplicationController
-  before_action :authorize
-
   def index
-    render json: Record.all, status: :ok
+    @pagy, @records = pagy(Record.all, items: 25)
+    render json: { page: @pagy.page, records: @records }, status: :ok
   end
 
   def show
@@ -10,15 +9,18 @@ class RecordsController < ApplicationController
   end
 
   def create
-    render json: Record.create!(record_params), status: :created
+    authorize()
+    render json: Record.create!(record_params)
   end
 
   def update
+    authorize()
     find_record.update!(record_params)
     render json: find_record, status: :accepted
   end
 
   def destroy
+    authorize()
     find_record.destroy
     head :no_content
   end
