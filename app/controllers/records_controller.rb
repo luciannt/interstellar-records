@@ -1,7 +1,13 @@
 class RecordsController < ApplicationController
   def index
-    @pagy, @records = pagy(Record.all, items: 25)
-    render json: { page: @pagy.page, records: @records }, status: :ok
+    @pagy, @records = pagy(Record.all.joins(:artist), items: 24)
+    join = []
+
+    @records.each do |record|
+      join = [*join, { **record.as_json, artist: Artist.find_by(id: record[:artist_id]) }]
+    end
+
+    render json: { page: @pagy.page, records: join }, status: :ok
   end
 
   def show

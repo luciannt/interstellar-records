@@ -3,6 +3,8 @@
    License: none (public domain)
 */
 
+@import url("https://fonts.googleapis.com/css2?family=Sono:wght@200;400;600;800&display=swap");
+
 html,
 body,
 div,
@@ -126,4 +128,12 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+body {
+  background: rgb(216, 217, 216);
+}
+
+* {
+  font-family: "Sono", sans-serif !important;
 }

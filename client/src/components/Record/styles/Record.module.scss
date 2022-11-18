@@ -2,16 +2,44 @@
   display: flex;
   gap: 20px;
   width: 30%;
+  cursor: pointer;
 
   .info {
     display: flex;
     flex-direction: column;
     gap: 12px;
     height: 100%;
-    justify-content: center;
+    justify-content: space-between;
 
     h2 {
       font-size: 20px;
+    }
+
+    .artist {
+      font-style: italic;
+    }
+  }
+
+  .info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .wishlist {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    img {
+      height: 20px;
+      cursor: pointer;
     }
   }
   img {

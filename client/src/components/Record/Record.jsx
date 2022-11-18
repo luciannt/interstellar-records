@@ -12,7 +12,7 @@ import v6 from "../../assets/vinylrecord6.png";
 import v7 from "../../assets/vinylrecord7.png";
 import v8 from "../../assets/vinylrecord8.png";
 
-const Record = ({ name, price, cover }) => {
+const Record = ({ name, price, cover, artist }) => {
   const [placeholder, setPlaceholder] = useState(cover);
   const placeholderImages = [v1, v2, v3, v4, v5, v6, v7, v8];
 
@@ -26,8 +26,14 @@ const Record = ({ name, price, cover }) => {
     <div className={styles.container}>
       <img src={placeholder} alt={`${name} cover`} />
       <div className={styles.info}>
-        <h2>{name}</h2>
-        <p>${price}</p>
+        <div>
+          <h2>{name}</h2>
+          {artist && <p className={styles.artist}>by: {artist?.name}</p>}
+          <p className={styles.price}>${price}</p>
+        </div>
+        <button className={styles.wishlist}>
+          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" />
+        </button>
       </div>
     </div>
   );

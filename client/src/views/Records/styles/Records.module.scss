@@ -1,9 +1,16 @@
 .container {
+  width: 100%;
+
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-
   flex-grow: 1;
   flex-basis: 100px;
   max-width: 100%;
+  justify-content: center;
+}
+
+.load-more {
+  padding: 10px;
+  width: 40%;
 }

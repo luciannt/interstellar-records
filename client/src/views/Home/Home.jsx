@@ -16,15 +16,6 @@ const Home = () => {
         console.log(err);
       });
 
-    axios("http://127.0.0.1:3000/records")
-      .then((record) => {
-        console.log(record.data);
-        setRecords(record.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
     const intervalId = setInterval(() => {
       axios
         .get("http://127.0.0.1:3000/me")
@@ -40,11 +31,7 @@ const Home = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  return (
-    <div>
-      <Records />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Home;
