@@ -29,3 +29,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/database.yml
+
+react_rails_api_project_template_test
+react_rails_api_project_template_development
